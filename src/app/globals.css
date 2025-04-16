@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importer la police Plus Jakarta Sans */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* Règle forte pour appliquer la police partout */
+* {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+:root {
+  /* Palette de couleurs Optiiflow */
+  --primary: #624CF5;
+  --primary-light: #8E74FF;
+  --secondary: #42C9E5;
+  --secondary-light: #32D4C0;
+  --accent: #FF7A50;
+  --accent-light: #FFA477;
+  --text-dark: #000000; /* Texte noir comme demandé */
+  --text-muted: #6B7280;
+  --background: #F7F8FA;
+  --card-background: #FFFFFF;
+  --border-light: #E5E7EB;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-dark);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; /* Police modifiée */
+  min-height: 100vh;
+  line-height: 1.6;
+  font-weight: 400; /* Poids standard pour le texte */
+}
+
+/* Typographie */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-weight: 700; /* Poids 700 pour les titres */
+  line-height: 1.2;
+  color: var(--text-dark);
+}
+
+p {
+  color: #000000; /* Texte noir comme demandé */
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-weight: 400; /* Poids 400 pour les paragraphes */
+}
+
+/* Effets de transition universels */
+a, button, .transition {
+  transition: all 0.3s ease;
+}
+
+/* Gradients Optiiflow */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Effets d'élévation */
+.hover-elevate {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-elevate:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Divider de section stylisé comme Optiiflow */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.section-divider .line {
+  height: 1px;
+  width: 4rem;
+  background-color: var(--border-light);
+}
+
+.section-divider h2 {
+  padding: 0 1rem;
+}
+
+@layer components {
+  /* Boutons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#624CF5] to-[#8E74FF] text-white font-medium py-3 px-6 rounded-full shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 hover:opacity-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-[#42C9E5] to-[#32D4C0] text-white font-medium py-3 px-6 rounded-full shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 hover:opacity-95;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-[#FF7A50] to-[#FFA477] text-white font-medium py-3 px-6 rounded-full shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 hover:opacity-95;
+  }
+  
+  .btn-outline {
+    @apply border border-[#624CF5] text-[#624CF5] bg-white font-medium py-3 px-6 rounded-full hover:bg-[#624CF5]/5 transition-all;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent text-[#2E3146] hover:text-[#624CF5] font-medium py-3 px-6 transition-colors duration-300;
+  }
+  
+  /* Inputs */
+  .input-field {
+    @apply w-full p-3 bg-white border border-[#E5E7EB] text-[#2E3146] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#624CF5]/30 focus:border-[#624CF5] placeholder:text-[#6B7280]/50 transition-all;
+  }
+  
+  .select-field {
+    @apply w-full p-3 bg-white border border-[#E5E7EB] text-[#2E3146] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#624CF5]/30 focus:border-[#624CF5] transition-all;
+  }
+  
+  /* Cards */
+  .card {
+    @apply bg-white border border-[#E5E7EB] rounded-xl shadow-sm hover:shadow-md transition-all p-6;
+  }
+  
+  .card-feature {
+    @apply bg-white rounded-xl border border-[#E5E7EB] p-6 shadow-sm hover:shadow-md transition-all duration-300 group;
+  }
+  
+  .card-feature-icon {
+    @apply w-14 h-14 mb-6 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-all;
+  }
+  
+  /* Badge */ 
+  .badge {
+    @apply px-3 py-1 text-xs font-medium rounded-full;
+  }
+  
+  .badge-primary {
+    @apply bg-[#624CF5]/10 text-[#624CF5];
+  }
+  
+  .badge-secondary {
+    @apply bg-[#42C9E5]/10 text-[#42C9E5];
+  }
+  
+  .badge-accent {
+    @apply bg-[#FF7A50]/10 text-[#FF7A50];
+  }
+
+  /* Header */
+  .header {
+    @apply bg-white border-b border-[#E5E7EB] py-4 sticky top-0 z-50;
+  }
+  
+  /* Navigation */
+  .nav-menu {
+    @apply bg-white text-black flex items-center gap-6;
+  }
+  
+  .nav-item {
+    @apply text-black hover:text-[#624CF5] font-medium py-2 transition-colors;
+  }
+  
+  .nav-item-active {
+    @apply text-[#624CF5] font-semibold;
+  }
+
+  /* Footer */
+  .footer {
+    @apply bg-white border-t border-[#E5E7EB] py-12 text-black;
+  }
+  
+  .footer-heading {
+    @apply text-black font-bold text-lg mb-4;
+  }
+  
+  .footer-link {
+    @apply text-black hover:text-[#624CF5] block py-1 transition-colors;
+  }
+  
+  /* Hero section */
+  .hero-section {
+    @apply py-16 md:py-24;
+  }
+  
+  .hero-title {
+    @apply text-4xl md:text-5xl font-bold mb-6 text-[#000000] leading-tight;
+  }
+  
+  .hero-subtitle {
+    @apply text-xl text-[#000000] max-w-3xl mx-auto;
+  }
+  
+  /* Section headers */
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-[#000000] px-4 text-center;
+  }
+}
+
+/* Styles d'impression pour les PDF */
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .page-break-before {
+    page-break-before: always;
+  }
+  
+  .page-break-after {
+    page-break-after: always;
+  }
+  
+  /* Assurer que les éléments ne sont pas coupés */
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, div, section {
+    break-inside: avoid;
+  }
+  
+  /* Cacher les éléments de navigation pour l'impression */
+  nav, button, .print-hide {
+    display: none !important;
+  }
+  
+  /* S'assurer que les arrière-plans s'impriment */
+  .print-force-background {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Ajuster les marges et paddings */
+  .print-content {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Style pour le texte */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  h1 {
+    font-size: 20pt !important;
+    margin-bottom: 15pt !important;
+  }
+  
+  h2 {
+    font-size: 16pt !important;
+    margin-bottom: 12pt !important;
+  }
+  
+  h3 {
+    font-size: 14pt !important;
+    margin-bottom: 10pt !important;
+  }
+}
+
+/* Assurez-vous que les éléments ci-dessous ne sont visibles qu'à l'impression */
+.pdf-header,
+.pdf-footer {
+  display: none;
+}
+
+@media print {
+  .pdf-header,
+  .pdf-footer {
+    display: block !important;
+  }
+}
